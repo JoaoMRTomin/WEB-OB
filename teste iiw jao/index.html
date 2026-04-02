@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Minha Lista de Techs</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background-color: #f0f2f5;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Minhas Tecnologias</h2>
+        <input type="text" id="novoItem" placeholder="Ex: React, Java...">
+        <button onclick="adicionarItem()">Adicionar à Lista</button>
+        <ul id="listaNaTela"></ul>
+    </div>
+
+    <script>
+        // 1. Array inicial (nossa lista)
+        let minhasTecnologias = ["JavaScript", "HTML", "CSS"];
+
+        function carregarInterface() {
+            let listaHtml = document.getElementById("listaNaTela");
+            listaHtml.innerHTML = ""; // Limpa a tela para não duplicar
+
+            for (let i = 0; i < minhasTecnologias.length; i++) {
+                // DESAFIO 1: Adicione o item à lista
+                listaHtml.innerHTML += "<li>" + minhasTecnologias[i] + "</li>";
+            }
+        }
+
+        function adicionarItem() {
+            // DESAFIO 2: Capture o que foi digitado
+             let valor = document.getElementById("novoItem").value;
+
+            // DESAFIO 3: Adicione ao Array
+             minhasTecnologias.push(valor);
+
+            // DESAFIO 4: Limpe o input e atualize a tela
+             document.getElementById("novoItem").value = "";
+            carregarInterface();
+        }
+
+        carregarInterface();
+    </script>
+</body>
+
+</html>
